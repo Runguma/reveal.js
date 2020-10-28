@@ -1,471 +1,353 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d1d7a0987a804d499e5276978606eaae {
+                    position: absolute;
+                    width: 50.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+    
+            <style>
+                #export {
+                    position: absolute;
+                    top: 5px;
+                    right: 10px;
+                    z-index: 999;
+                    background: white;
+                    color: black;
+                    padding: 6px;
+                    border-radius: 4px;
+                    font-family: 'Helvetica Neue';
+                    cursor: pointer;
+                    font-size: 12px;
+                    text-decoration: none;
+                    top: 90px;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_24682fafe5464f5ca12438dc3487ed58 {
+                    position: absolute;
+                    width: 50.0%;
+                    height: 100.0%;
+                    left: 50.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/jieter/Leaflet.Sync/L.Map.Sync.min.js"></script>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_d1d7a0987a804d499e5276978606eaae" ></div>
+        
+    <a href='#' id='export'>Export</a>
+    
+            <div class="folium-map" id="map_24682fafe5464f5ca12438dc3487ed58" ></div>
+        
+</body>
+<script>    
+    
+            var map_d1d7a0987a804d499e5276978606eaae = L.map(
+                "map_d1d7a0987a804d499e5276978606eaae",
+                {
+                    center: [-1.2921, 36.8219],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
 
-	<head>
-		<meta charset="utf-8">
+            
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+        
+    
+            var tile_layer_86bb56cb072b4e5bad48aaf3864cd4bd = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+            var feature_group_04957ecdd42d4bd28495fc5dcf6ae2b8 = L.featureGroup(
+                {}
+            ).addTo(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+        function geo_json_0003b83e28fe4b399bc4f8123c0b2eb7_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_0003b83e28fe4b399bc4f8123c0b2eb7 = L.geoJson(null, {
+                onEachFeature: geo_json_0003b83e28fe4b399bc4f8123c0b2eb7_onEachFeature,
+            
+        });
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+        function geo_json_0003b83e28fe4b399bc4f8123c0b2eb7_add (data) {
+            geo_json_0003b83e28fe4b399bc4f8123c0b2eb7
+                .addData(data)
+                .addTo(feature_group_04957ecdd42d4bd28495fc5dcf6ae2b8);
+        }
+            geo_json_0003b83e28fe4b399bc4f8123c0b2eb7_add({"bbox": [40.352909657948466, -0.06998727081307148, 40.3934552088042, -0.034224842563762965], "features": [{"bbox": [40.39345484820006, -0.034224842563762965, 40.39345484820006, -0.034224842563762965], "geometry": {"coordinates": [40.39345484820006, -0.034224842563762965], "type": "Point"}, "id": "0", "properties": {"Name": "Jarajila 1", "Phase": null, "Section": null, "Status": "Operating", "X": 655072.0, "Y": 9996216.0}, "type": "Feature"}, {"bbox": [40.3934552088042, -0.05367982036243266, 40.3934552088042, -0.05367982036243266], "geometry": {"coordinates": [40.3934552088042, -0.05367982036243266], "type": "Point"}, "id": "1", "properties": {"Name": "Jarajila 2", "Phase": null, "Section": null, "Status": "Not in Use", "X": 655072.0, "Y": 9994065.0}, "type": "Feature"}, {"bbox": [40.393437665881265, -0.06998727081307148, 40.393437665881265, -0.06998727081307148], "geometry": {"coordinates": [40.393437665881265, -0.06998727081307148], "type": "Point"}, "id": "2", "properties": {"Name": "Jarajila 3", "Phase": null, "Section": null, "Status": "Not in Use", "X": 655070.0, "Y": 9992262.0}, "type": "Feature"}, {"bbox": [40.36791372397375, -0.06873985626625681, 40.36791372397375, -0.06873985626625681], "geometry": {"coordinates": [40.36791372397375, -0.06873985626625681], "type": "Point"}, "id": "3", "properties": {"Name": "Jarajila 4", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652229.0, "Y": 9992400.0}, "type": "Feature"}, {"bbox": [40.36934183861585, -0.054268275136519, 40.36934183861585, -0.054268275136519], "geometry": {"coordinates": [40.36934183861585, -0.054268275136519], "type": "Point"}, "id": "4", "properties": {"Name": "Jarajila 5", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652388.0, "Y": 9994000.0}, "type": "Feature"}, {"bbox": [40.369179856644195, -0.04070120917175345, 40.369179856644195, -0.04070120917175345], "geometry": {"coordinates": [40.369179856644195, -0.04070120917175345], "type": "Point"}, "id": "5", "properties": {"Name": "Jarajila 6", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652370.0, "Y": 9995500.0}, "type": "Feature"}, {"bbox": [40.35571250399343, -0.0376623975269355, 40.35571250399343, -0.0376623975269355], "geometry": {"coordinates": [40.35571250399343, -0.0376623975269355], "type": "Point"}, "id": "6", "properties": {"Name": "Jarajila 7", "Phase": null, "Section": null, "Status": "Not in Use", "X": 650871.0, "Y": 9995836.0}, "type": "Feature"}, {"bbox": [40.352909657948466, -0.05047888691211675, 40.352909657948466, -0.05047888691211675], "geometry": {"coordinates": [40.352909657948466, -0.05047888691211675], "type": "Point"}, "id": "7", "properties": {"Name": "Jarajila 8", "Phase": null, "Section": null, "Status": "Not in Use", "X": 650559.0, "Y": 9994419.0}, "type": "Feature"}], "type": "FeatureCollection"});
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        
+    
+            var tile_layer_c9fc04c1d1834c7d9fa6882efa45a21b = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_8fb3bbc853164743b7059c97c29fb4fa = new L.Control.MiniMap(
+                tile_layer_c9fc04c1d1834c7d9fa6882efa45a21b,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": false, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_d1d7a0987a804d499e5276978606eaae.addControl(mini_map_8fb3bbc853164743b7059c97c29fb4fa);
+        
+    
+            L.control.fullscreen(
+                {"forceSeparateButton": true, "position": "topleft", "title": "Expand me", "titleCancel": "Exit me"}
+            ).addTo(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+            var options = {
+              position: "bottomleft",
+              draw: {},
+              edit: {},
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(
+                map_d1d7a0987a804d499e5276978606eaae
+            );
+            options.edit.featureGroup = drawnItems;
+            var draw_control_b93d4906efd44a60b8340399add1c814 = new L.Control.Draw(
+                options
+            ).addTo( map_d1d7a0987a804d499e5276978606eaae );
+            map_d1d7a0987a804d499e5276978606eaae.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems.addLayer(layer);
+             });
+            map_d1d7a0987a804d499e5276978606eaae.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            
+            document.getElementById('export').onclick = function(e) {
+                var data = drawnItems.toGeoJSON();
+                var convertedData = 'text/json;charset=utf-8,'
+                    + encodeURIComponent(JSON.stringify(data));
+                document.getElementById('export').setAttribute(
+                    'href', 'data:' + convertedData
+                );
+                document.getElementById('export').setAttribute(
+                    'download', "data.geojson"
+                );
+            }
+            
+        
+    
+            var measure_control_729b1dc5ea334453b0c31f699184b15c = new L.Control.Measure(
+                {"position": "bottomright", "primaryAreaUnit": "sqmeters", "primaryLengthUnit": "meters", "secondaryAreaUnit": "acres", "secondaryLengthUnit": "miles"});
+            map_d1d7a0987a804d499e5276978606eaae.addControl(measure_control_729b1dc5ea334453b0c31f699184b15c);
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    
+            L.Control.geocoder(
+                {"collapsed": true, "defaultMarkGeocode": true, "position": "topright"}
+            ).on('markgeocode', function(e) {
+                map_d1d7a0987a804d499e5276978606eaae.setView(e.geocode.center, 11);
+            }).addTo(map_d1d7a0987a804d499e5276978606eaae);
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+        
+    
+            var layer_control_7117ca5ddae64741a77d3d77f8073061 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_86bb56cb072b4e5bad48aaf3864cd4bd,
+                },
+                overlays :  {
+                    "Good data" : feature_group_04957ecdd42d4bd28495fc5dcf6ae2b8,
+                },
+            };
+            L.control.layers(
+                layer_control_7117ca5ddae64741a77d3d77f8073061.base_layers,
+                layer_control_7117ca5ddae64741a77d3d77f8073061.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topleft"}
+            ).addTo(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+            var map_24682fafe5464f5ca12438dc3487ed58 = L.map(
+                "map_24682fafe5464f5ca12438dc3487ed58",
+                {
+                    center: [-1.2921, 36.8219],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
-	</head>
+            
 
-	<body>
+        
+    
+            var feature_group_820fae3e0ef94da09dfc71e0f2fdc82b = L.featureGroup(
+                {}
+            ).addTo(map_24682fafe5464f5ca12438dc3487ed58);
+        
+    
+        function geo_json_6b4406095b1643dabb98916ed3744c0c_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_6b4406095b1643dabb98916ed3744c0c = L.geoJson(null, {
+                onEachFeature: geo_json_6b4406095b1643dabb98916ed3744c0c_onEachFeature,
+            
+        });
 
-		<div class="reveal">
+        function geo_json_6b4406095b1643dabb98916ed3744c0c_add (data) {
+            geo_json_6b4406095b1643dabb98916ed3744c0c
+                .addData(data)
+                .addTo(feature_group_820fae3e0ef94da09dfc71e0f2fdc82b);
+        }
+            geo_json_6b4406095b1643dabb98916ed3744c0c_add({"bbox": [126.89401320303563, 88.61029185492605, 128.3538937284513, 88.65124879735332], "features": [{"bbox": [128.3538937284513, 88.61112447584769, 128.3538937284513, 88.61112447584769], "geometry": {"coordinates": [128.3538937284513, 88.61112447584769], "type": "Point"}, "id": "0", "properties": {"Name": "Jarajila 1", "Phase": null, "Section": null, "Status": "Operating", "X": 655072.0, "Y": 9996216.0}, "type": "Feature"}, {"bbox": [127.55949945417242, 88.61077367437228, 127.55949945417242, 88.61077367437228], "geometry": {"coordinates": [127.55949945417242, 88.61077367437228], "type": "Point"}, "id": "1", "properties": {"Name": "Jarajila 2", "Phase": null, "Section": null, "Status": "Not in Use", "X": 655072.0, "Y": 9994065.0}, "type": "Feature"}, {"bbox": [126.89401320303563, 88.61029185492605, 126.89401320303563, 88.61029185492605], "geometry": {"coordinates": [126.89401320303563, 88.61029185492605], "type": "Point"}, "id": "2", "properties": {"Name": "Jarajila 3", "Phase": null, "Section": null, "Status": "Not in Use", "X": 655070.0, "Y": 9992262.0}, "type": "Feature"}, {"bbox": [126.90660295972104, 88.63575860940533, 126.90660295972104, 88.63575860940533], "geometry": {"coordinates": [126.90660295972104, 88.63575860940533], "type": "Point"}, "id": "3", "properties": {"Name": "Jarajila 4", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652229.0, "Y": 9992400.0}, "type": "Feature"}, {"bbox": [127.5097135354723, 88.63478368345442, 127.5097135354723, 88.63478368345442], "geometry": {"coordinates": [127.5097135354723, 88.63478368345442], "type": "Point"}, "id": "4", "properties": {"Name": "Jarajila 5", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652388.0, "Y": 9994000.0}, "type": "Feature"}, {"bbox": [128.0732745285964, 88.63522818279428, 128.0732745285964, 88.63522818279428], "geometry": {"coordinates": [128.0732745285964, 88.63522818279428], "type": "Point"}, "id": "5", "properties": {"Name": "Jarajila 6", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652370.0, "Y": 9995500.0}, "type": "Feature"}, {"bbox": [128.19162697046528, 88.64869449078371, 128.19162697046528, 88.64869449078371], "geometry": {"coordinates": [128.19162697046528, 88.64869449078371], "type": "Point"}, "id": "6", "properties": {"Name": "Jarajila 7", "Phase": null, "Section": null, "Status": "Not in Use", "X": 650871.0, "Y": 9995836.0}, "type": "Feature"}, {"bbox": [127.65095237453947, 88.65124879735332, 127.65095237453947, 88.65124879735332], "geometry": {"coordinates": [127.65095237453947, 88.65124879735332], "type": "Point"}, "id": "7", "properties": {"Name": "Jarajila 8", "Phase": null, "Section": null, "Status": "Not in Use", "X": 650559.0, "Y": 9994419.0}, "type": "Feature"}], "type": "FeatureCollection"});
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<a href="https://revealjs.com">
-						<img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="reveal.js logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
-					</a>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
-					</p>
-				</section>
+        
+    
+            map_d1d7a0987a804d499e5276978606eaae.sync(map_24682fafe5464f5ca12438dc3487ed58);
+            map_24682fafe5464f5ca12438dc3487ed58.sync(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+            var tile_layer_e8b2de2c072540118e4c8ad82ed4c422 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_24682fafe5464f5ca12438dc3487ed58);
+        
+    
+            var tile_layer_c9fc04c1d1834c7d9fa6882efa45a21b = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_647db49e98934eb7a6df86d8c33b2a7b = new L.Control.MiniMap(
+                tile_layer_c9fc04c1d1834c7d9fa6882efa45a21b,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": false, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_24682fafe5464f5ca12438dc3487ed58.addControl(mini_map_647db49e98934eb7a6df86d8c33b2a7b);
+        
+    
+            L.control.fullscreen(
+                {"forceSeparateButton": true, "position": "topleft", "title": "Expand me", "titleCancel": "Exit me"}
+            ).addTo(map_24682fafe5464f5ca12438dc3487ed58);
+        
+    
+            var options = {
+              position: "bottomleft",
+              draw: {},
+              edit: {},
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(
+                map_24682fafe5464f5ca12438dc3487ed58
+            );
+            options.edit.featureGroup = drawnItems;
+            var draw_control_0180dbcc3bbf4b1ebe399535d66941ff = new L.Control.Draw(
+                options
+            ).addTo( map_24682fafe5464f5ca12438dc3487ed58 );
+            map_24682fafe5464f5ca12438dc3487ed58.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems.addLayer(layer);
+             });
+            map_24682fafe5464f5ca12438dc3487ed58.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            
+            document.getElementById('export').onclick = function(e) {
+                var data = drawnItems.toGeoJSON();
+                var convertedData = 'text/json;charset=utf-8,'
+                    + encodeURIComponent(JSON.stringify(data));
+                document.getElementById('export').setAttribute(
+                    'href', 'data:' + convertedData
+                );
+                document.getElementById('export').setAttribute(
+                    'download', "data.geojson"
+                );
+            }
+            
+        
+    
+            var measure_control_a6a2e5613d404ee997fd92e4899e88f8 = new L.Control.Measure(
+                {"position": "bottomright", "primaryAreaUnit": "sqmeters", "primaryLengthUnit": "meters", "secondaryAreaUnit": "acres", "secondaryLengthUnit": "miles"});
+            map_24682fafe5464f5ca12438dc3487ed58.addControl(measure_control_a6a2e5613d404ee997fd92e4899e88f8);
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
+        
+    
+            L.Control.geocoder(
+                {"collapsed": true, "defaultMarkGeocode": true, "position": "topright"}
+            ).on('markgeocode', function(e) {
+                map_24682fafe5464f5ca12438dc3487ed58.setView(e.geocode.center, 11);
+            }).addTo(map_24682fafe5464f5ca12438dc3487ed58);
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img class="r-frame" style="background: rgba(255,255,255,0.1); transform: rotate(180deg);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="https://slides.com" target="_blank">https://slides.com</a>.
-					</p>
-				</section>
-
-				<section data-visibility="hidden">
-					<h2>Hidden Slides</h2>
-					<p>
-						This slide is visible in the source, but hidden when the presentation is viewed. You can show all hidden slides by setting the `showHiddenSlides` config option to `true`.
-					</p>
-				</section>
-
-				<section data-auto-animate>
-					<h2 data-id="code-title">Pretty Code</h2>
-					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
-						import React, { useState } from 'react';
-
-						function Example() {
-						  const [count, setCount] = useState(0);
-
-						  return (
-						    ...
-						  );
-						}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="https://highlightjs.org/usage/">highlight.js</a>.</p>
-				</section>
-
-				<section data-auto-animate>
-					<h2 data-id="code-title">With animations</h2>
-					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
-						import React, { useState } from 'react';
-
-						function Example() {
-						  const [count, setCount] = useState(0);
-
-						  return (
-						    <div>
-						      <p>You clicked {count} times</p>
-						      <button onClick={() => setCount(count + 1)}>
-						        Click me
-						      </button>
-						    </div>
-						  );
-						}
-
-						function SecondExample() {
-						  const [count, setCount] = useState(0);
-
-						  return (
-						    <div>
-						      <p>You clicked {count} times</p>
-						      <button onClick={() => setCount(count + 1)}>
-						        Click me
-						      </button>
-						    </div>
-						  );
-						}
-					</script></code></pre>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down the <strong>alt</strong> key (<strong>ctrl</strong> in Linux) and click on any element to zoom towards it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Click again to zoom back out.
-					</p>
-					<p>
-						(NOTE: Use ctrl + click in Linux.)
-					</p>
-				</section>
-
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<h2>Auto-Animate</h2>
-					<p>Automatically animate matching elements across slides with <a href="https://revealjs.com/auto-animate/">Auto-Animate</a>.</p>
-					<div class="r-hstack justify-center">
-						<div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
-						<div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
-						<div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
-					</div>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div class="r-hstack justify-center">
-						<div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 150px; height: 100px; margin: 10px;"></div>
-						<div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 150px; height: 100px; margin: 10px;"></div>
-						<div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 150px; height: 100px; margin: 10px;"></div>
-					</div>
-					<h2 style="margin-top: 20px;">Auto-Animate</h2>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div class="r-stack">
-						<div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"></div>
-						<div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"></div>
-						<div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"></div>
-					</div>
-					<h2 style="margin-top: 20px;">Auto-Animate</h2>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://revealjs.com/markdown/).
-
-						```[]
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://revealjs.com/markdown/).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p>
-							<span style="display: inline-block;" class="fragment fade-right">fade-right, </span>
-							<span style="display: inline-block;" class="fragment fade-up">up, </span>
-							<span style="display: inline-block;" class="fragment fade-down">down, </span>
-							<span style="display: inline-block;" class="fragment fade-left">left</span>
-						</p>
-						<p class="fragment fade-in-then-out">fade-in-then-out</p>
-						<p class="fragment fade-in-then-semi-out">fade-in-then-semi-out</p>
-						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://static.slid.es/reveal/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs html">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://static.slid.es/reveal/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs javascript">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section data-background-iframe="https://hakim.se" data-background-interactive>
-					<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
-						<h2>Iframe Backgrounds</h2>
-						<p>Since reveal.js runs on the web, you can easily embed other web content. Try interacting with the page in the background.</p>
-					</div>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://revealjs.com/speaker-view/">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://revealjs.com/pdf-export/">exported to PDF</a>, here's an example:</p>
-					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.on( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://revealjs.com/api/">Extensive JavaScript API</a></li>
-						<li><a href="https://revealjs.com/auto-slide/">Auto-progression</a></li>
-						<li><a href="https://revealjs.com/backgrounds/#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://revealjs.com/keyboard/">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="https://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
-
-			</div>
-
-		</div>
-
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/zoom/zoom.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/search/search.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-
-		</script>
-
-	</body>
-</html>
+        
+    
+            var layer_control_58bad0dc5b04490e9aefbf3fbbd5330b = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_e8b2de2c072540118e4c8ad82ed4c422,
+                },
+                overlays :  {
+                    "Bad data" : feature_group_820fae3e0ef94da09dfc71e0f2fdc82b,
+                },
+            };
+            L.control.layers(
+                layer_control_58bad0dc5b04490e9aefbf3fbbd5330b.base_layers,
+                layer_control_58bad0dc5b04490e9aefbf3fbbd5330b.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topleft"}
+            ).addTo(map_24682fafe5464f5ca12438dc3487ed58);
+        
+</script>
