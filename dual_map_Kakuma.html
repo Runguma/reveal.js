@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d1d7a0987a804d499e5276978606eaae {
+                    position: absolute;
+                    width: 50.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+    
+            <style>
+                #export {
+                    position: absolute;
+                    top: 5px;
+                    right: 10px;
+                    z-index: 999;
+                    background: white;
+                    color: black;
+                    padding: 6px;
+                    border-radius: 4px;
+                    font-family: 'Helvetica Neue';
+                    cursor: pointer;
+                    font-size: 12px;
+                    text-decoration: none;
+                    top: 90px;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_24682fafe5464f5ca12438dc3487ed58 {
+                    position: absolute;
+                    width: 50.0%;
+                    height: 100.0%;
+                    left: 50.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/jieter/Leaflet.Sync/L.Map.Sync.min.js"></script>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_d1d7a0987a804d499e5276978606eaae" ></div>
+        
+    <a href='#' id='export'>Export</a>
+    
+            <div class="folium-map" id="map_24682fafe5464f5ca12438dc3487ed58" ></div>
+        
+</body>
+<script>    
+    
+            var map_d1d7a0987a804d499e5276978606eaae = L.map(
+                "map_d1d7a0987a804d499e5276978606eaae",
+                {
+                    center: [-1.2921, 36.8219],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_86bb56cb072b4e5bad48aaf3864cd4bd = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+            var feature_group_04957ecdd42d4bd28495fc5dcf6ae2b8 = L.featureGroup(
+                {}
+            ).addTo(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+        function geo_json_0003b83e28fe4b399bc4f8123c0b2eb7_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_0003b83e28fe4b399bc4f8123c0b2eb7 = L.geoJson(null, {
+                onEachFeature: geo_json_0003b83e28fe4b399bc4f8123c0b2eb7_onEachFeature,
+            
+        });
+
+        function geo_json_0003b83e28fe4b399bc4f8123c0b2eb7_add (data) {
+            geo_json_0003b83e28fe4b399bc4f8123c0b2eb7
+                .addData(data)
+                .addTo(feature_group_04957ecdd42d4bd28495fc5dcf6ae2b8);
+        }
+            geo_json_0003b83e28fe4b399bc4f8123c0b2eb7_add({"bbox": [40.352909657948466, -0.06998727081307148, 40.3934552088042, -0.034224842563762965], "features": [{"bbox": [40.39345484820006, -0.034224842563762965, 40.39345484820006, -0.034224842563762965], "geometry": {"coordinates": [40.39345484820006, -0.034224842563762965], "type": "Point"}, "id": "0", "properties": {"Name": "Jarajila 1", "Phase": null, "Section": null, "Status": "Operating", "X": 655072.0, "Y": 9996216.0}, "type": "Feature"}, {"bbox": [40.3934552088042, -0.05367982036243266, 40.3934552088042, -0.05367982036243266], "geometry": {"coordinates": [40.3934552088042, -0.05367982036243266], "type": "Point"}, "id": "1", "properties": {"Name": "Jarajila 2", "Phase": null, "Section": null, "Status": "Not in Use", "X": 655072.0, "Y": 9994065.0}, "type": "Feature"}, {"bbox": [40.393437665881265, -0.06998727081307148, 40.393437665881265, -0.06998727081307148], "geometry": {"coordinates": [40.393437665881265, -0.06998727081307148], "type": "Point"}, "id": "2", "properties": {"Name": "Jarajila 3", "Phase": null, "Section": null, "Status": "Not in Use", "X": 655070.0, "Y": 9992262.0}, "type": "Feature"}, {"bbox": [40.36791372397375, -0.06873985626625681, 40.36791372397375, -0.06873985626625681], "geometry": {"coordinates": [40.36791372397375, -0.06873985626625681], "type": "Point"}, "id": "3", "properties": {"Name": "Jarajila 4", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652229.0, "Y": 9992400.0}, "type": "Feature"}, {"bbox": [40.36934183861585, -0.054268275136519, 40.36934183861585, -0.054268275136519], "geometry": {"coordinates": [40.36934183861585, -0.054268275136519], "type": "Point"}, "id": "4", "properties": {"Name": "Jarajila 5", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652388.0, "Y": 9994000.0}, "type": "Feature"}, {"bbox": [40.369179856644195, -0.04070120917175345, 40.369179856644195, -0.04070120917175345], "geometry": {"coordinates": [40.369179856644195, -0.04070120917175345], "type": "Point"}, "id": "5", "properties": {"Name": "Jarajila 6", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652370.0, "Y": 9995500.0}, "type": "Feature"}, {"bbox": [40.35571250399343, -0.0376623975269355, 40.35571250399343, -0.0376623975269355], "geometry": {"coordinates": [40.35571250399343, -0.0376623975269355], "type": "Point"}, "id": "6", "properties": {"Name": "Jarajila 7", "Phase": null, "Section": null, "Status": "Not in Use", "X": 650871.0, "Y": 9995836.0}, "type": "Feature"}, {"bbox": [40.352909657948466, -0.05047888691211675, 40.352909657948466, -0.05047888691211675], "geometry": {"coordinates": [40.352909657948466, -0.05047888691211675], "type": "Point"}, "id": "7", "properties": {"Name": "Jarajila 8", "Phase": null, "Section": null, "Status": "Not in Use", "X": 650559.0, "Y": 9994419.0}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            var tile_layer_c9fc04c1d1834c7d9fa6882efa45a21b = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_8fb3bbc853164743b7059c97c29fb4fa = new L.Control.MiniMap(
+                tile_layer_c9fc04c1d1834c7d9fa6882efa45a21b,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": false, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_d1d7a0987a804d499e5276978606eaae.addControl(mini_map_8fb3bbc853164743b7059c97c29fb4fa);
+        
+    
+            L.control.fullscreen(
+                {"forceSeparateButton": true, "position": "topleft", "title": "Expand me", "titleCancel": "Exit me"}
+            ).addTo(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+            var options = {
+              position: "bottomleft",
+              draw: {},
+              edit: {},
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(
+                map_d1d7a0987a804d499e5276978606eaae
+            );
+            options.edit.featureGroup = drawnItems;
+            var draw_control_b93d4906efd44a60b8340399add1c814 = new L.Control.Draw(
+                options
+            ).addTo( map_d1d7a0987a804d499e5276978606eaae );
+            map_d1d7a0987a804d499e5276978606eaae.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems.addLayer(layer);
+             });
+            map_d1d7a0987a804d499e5276978606eaae.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            
+            document.getElementById('export').onclick = function(e) {
+                var data = drawnItems.toGeoJSON();
+                var convertedData = 'text/json;charset=utf-8,'
+                    + encodeURIComponent(JSON.stringify(data));
+                document.getElementById('export').setAttribute(
+                    'href', 'data:' + convertedData
+                );
+                document.getElementById('export').setAttribute(
+                    'download', "data.geojson"
+                );
+            }
+            
+        
+    
+            var measure_control_729b1dc5ea334453b0c31f699184b15c = new L.Control.Measure(
+                {"position": "bottomright", "primaryAreaUnit": "sqmeters", "primaryLengthUnit": "meters", "secondaryAreaUnit": "acres", "secondaryLengthUnit": "miles"});
+            map_d1d7a0987a804d499e5276978606eaae.addControl(measure_control_729b1dc5ea334453b0c31f699184b15c);
+
+        
+    
+            L.Control.geocoder(
+                {"collapsed": true, "defaultMarkGeocode": true, "position": "topright"}
+            ).on('markgeocode', function(e) {
+                map_d1d7a0987a804d499e5276978606eaae.setView(e.geocode.center, 11);
+            }).addTo(map_d1d7a0987a804d499e5276978606eaae);
+
+        
+    
+            var layer_control_7117ca5ddae64741a77d3d77f8073061 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_86bb56cb072b4e5bad48aaf3864cd4bd,
+                },
+                overlays :  {
+                    "Good data" : feature_group_04957ecdd42d4bd28495fc5dcf6ae2b8,
+                },
+            };
+            L.control.layers(
+                layer_control_7117ca5ddae64741a77d3d77f8073061.base_layers,
+                layer_control_7117ca5ddae64741a77d3d77f8073061.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topleft"}
+            ).addTo(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+            var map_24682fafe5464f5ca12438dc3487ed58 = L.map(
+                "map_24682fafe5464f5ca12438dc3487ed58",
+                {
+                    center: [-1.2921, 36.8219],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var feature_group_820fae3e0ef94da09dfc71e0f2fdc82b = L.featureGroup(
+                {}
+            ).addTo(map_24682fafe5464f5ca12438dc3487ed58);
+        
+    
+        function geo_json_6b4406095b1643dabb98916ed3744c0c_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_6b4406095b1643dabb98916ed3744c0c = L.geoJson(null, {
+                onEachFeature: geo_json_6b4406095b1643dabb98916ed3744c0c_onEachFeature,
+            
+        });
+
+        function geo_json_6b4406095b1643dabb98916ed3744c0c_add (data) {
+            geo_json_6b4406095b1643dabb98916ed3744c0c
+                .addData(data)
+                .addTo(feature_group_820fae3e0ef94da09dfc71e0f2fdc82b);
+        }
+            geo_json_6b4406095b1643dabb98916ed3744c0c_add({"bbox": [126.89401320303563, 88.61029185492605, 128.3538937284513, 88.65124879735332], "features": [{"bbox": [128.3538937284513, 88.61112447584769, 128.3538937284513, 88.61112447584769], "geometry": {"coordinates": [128.3538937284513, 88.61112447584769], "type": "Point"}, "id": "0", "properties": {"Name": "Jarajila 1", "Phase": null, "Section": null, "Status": "Operating", "X": 655072.0, "Y": 9996216.0}, "type": "Feature"}, {"bbox": [127.55949945417242, 88.61077367437228, 127.55949945417242, 88.61077367437228], "geometry": {"coordinates": [127.55949945417242, 88.61077367437228], "type": "Point"}, "id": "1", "properties": {"Name": "Jarajila 2", "Phase": null, "Section": null, "Status": "Not in Use", "X": 655072.0, "Y": 9994065.0}, "type": "Feature"}, {"bbox": [126.89401320303563, 88.61029185492605, 126.89401320303563, 88.61029185492605], "geometry": {"coordinates": [126.89401320303563, 88.61029185492605], "type": "Point"}, "id": "2", "properties": {"Name": "Jarajila 3", "Phase": null, "Section": null, "Status": "Not in Use", "X": 655070.0, "Y": 9992262.0}, "type": "Feature"}, {"bbox": [126.90660295972104, 88.63575860940533, 126.90660295972104, 88.63575860940533], "geometry": {"coordinates": [126.90660295972104, 88.63575860940533], "type": "Point"}, "id": "3", "properties": {"Name": "Jarajila 4", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652229.0, "Y": 9992400.0}, "type": "Feature"}, {"bbox": [127.5097135354723, 88.63478368345442, 127.5097135354723, 88.63478368345442], "geometry": {"coordinates": [127.5097135354723, 88.63478368345442], "type": "Point"}, "id": "4", "properties": {"Name": "Jarajila 5", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652388.0, "Y": 9994000.0}, "type": "Feature"}, {"bbox": [128.0732745285964, 88.63522818279428, 128.0732745285964, 88.63522818279428], "geometry": {"coordinates": [128.0732745285964, 88.63522818279428], "type": "Point"}, "id": "5", "properties": {"Name": "Jarajila 6", "Phase": null, "Section": null, "Status": "Not in Use", "X": 652370.0, "Y": 9995500.0}, "type": "Feature"}, {"bbox": [128.19162697046528, 88.64869449078371, 128.19162697046528, 88.64869449078371], "geometry": {"coordinates": [128.19162697046528, 88.64869449078371], "type": "Point"}, "id": "6", "properties": {"Name": "Jarajila 7", "Phase": null, "Section": null, "Status": "Not in Use", "X": 650871.0, "Y": 9995836.0}, "type": "Feature"}, {"bbox": [127.65095237453947, 88.65124879735332, 127.65095237453947, 88.65124879735332], "geometry": {"coordinates": [127.65095237453947, 88.65124879735332], "type": "Point"}, "id": "7", "properties": {"Name": "Jarajila 8", "Phase": null, "Section": null, "Status": "Not in Use", "X": 650559.0, "Y": 9994419.0}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            map_d1d7a0987a804d499e5276978606eaae.sync(map_24682fafe5464f5ca12438dc3487ed58);
+            map_24682fafe5464f5ca12438dc3487ed58.sync(map_d1d7a0987a804d499e5276978606eaae);
+        
+    
+            var tile_layer_e8b2de2c072540118e4c8ad82ed4c422 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_24682fafe5464f5ca12438dc3487ed58);
+        
+    
+            var tile_layer_c9fc04c1d1834c7d9fa6882efa45a21b = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_647db49e98934eb7a6df86d8c33b2a7b = new L.Control.MiniMap(
+                tile_layer_c9fc04c1d1834c7d9fa6882efa45a21b,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": false, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_24682fafe5464f5ca12438dc3487ed58.addControl(mini_map_647db49e98934eb7a6df86d8c33b2a7b);
+        
+    
+            L.control.fullscreen(
+                {"forceSeparateButton": true, "position": "topleft", "title": "Expand me", "titleCancel": "Exit me"}
+            ).addTo(map_24682fafe5464f5ca12438dc3487ed58);
+        
+    
+            var options = {
+              position: "bottomleft",
+              draw: {},
+              edit: {},
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(
+                map_24682fafe5464f5ca12438dc3487ed58
+            );
+            options.edit.featureGroup = drawnItems;
+            var draw_control_0180dbcc3bbf4b1ebe399535d66941ff = new L.Control.Draw(
+                options
+            ).addTo( map_24682fafe5464f5ca12438dc3487ed58 );
+            map_24682fafe5464f5ca12438dc3487ed58.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems.addLayer(layer);
+             });
+            map_24682fafe5464f5ca12438dc3487ed58.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            
+            document.getElementById('export').onclick = function(e) {
+                var data = drawnItems.toGeoJSON();
+                var convertedData = 'text/json;charset=utf-8,'
+                    + encodeURIComponent(JSON.stringify(data));
+                document.getElementById('export').setAttribute(
+                    'href', 'data:' + convertedData
+                );
+                document.getElementById('export').setAttribute(
+                    'download', "data.geojson"
+                );
+            }
+            
+        
+    
+            var measure_control_a6a2e5613d404ee997fd92e4899e88f8 = new L.Control.Measure(
+                {"position": "bottomright", "primaryAreaUnit": "sqmeters", "primaryLengthUnit": "meters", "secondaryAreaUnit": "acres", "secondaryLengthUnit": "miles"});
+            map_24682fafe5464f5ca12438dc3487ed58.addControl(measure_control_a6a2e5613d404ee997fd92e4899e88f8);
+
+        
+    
+            L.Control.geocoder(
+                {"collapsed": true, "defaultMarkGeocode": true, "position": "topright"}
+            ).on('markgeocode', function(e) {
+                map_24682fafe5464f5ca12438dc3487ed58.setView(e.geocode.center, 11);
+            }).addTo(map_24682fafe5464f5ca12438dc3487ed58);
+
+        
+    
+            var layer_control_58bad0dc5b04490e9aefbf3fbbd5330b = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_e8b2de2c072540118e4c8ad82ed4c422,
+                },
+                overlays :  {
+                    "Bad data" : feature_group_820fae3e0ef94da09dfc71e0f2fdc82b,
+                },
+            };
+            L.control.layers(
+                layer_control_58bad0dc5b04490e9aefbf3fbbd5330b.base_layers,
+                layer_control_58bad0dc5b04490e9aefbf3fbbd5330b.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topleft"}
+            ).addTo(map_24682fafe5464f5ca12438dc3487ed58);
+        
+</script>
